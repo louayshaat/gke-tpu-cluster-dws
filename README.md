@@ -35,7 +35,7 @@ Note: If you create multiple clusters using these same cluster blueprints, ensur
     COMPUTE_REGION: the compute region where you want to store the state of the Terraform deployment.
 
 
-1. In the `examples/gke-consumption-options/dws-flex-start/gke-tpu-7x/gke-tpu-7x-deployment.yaml` file, fill in the following settings in the terraform_backend_defaults and vars sections to match the specific values for your deployment:
+1. In the `gke-tpu-7x-deployment.yaml` file, fill in the following settings in the terraform_backend_defaults and vars sections to match the specific values for your deployment:
 
     `bucket`: the name of the Cloud Storage bucket you created in the previous step.
     
@@ -45,7 +45,7 @@ Note: If you create multiple clusters using these same cluster blueprints, ensur
    
     `region`: the compute region for the cluster.
    
-    `zone`: the compute zone for the node pool of TPU 7x machines.
+    `zone`: the compute zone for the node pool of TPU 7x machines or TPU 6e.
    
     **`enable_flex_start`**: set to `true` to enable DWS Flex Start.
    
@@ -56,7 +56,7 @@ Note: If you create multiple clusters using these same cluster blueprints, ensur
     `authorized_cidr`: The IP address range that you want to allow to connect with the cluster.
    
    
-    To modify advanced settings, edit `examples/gke-consumption-options/dws-flex-start/gke-tpu-7x/gke-tpu-7x.yaml`.
+    To modify advanced settings, edit `gke-tpu-7x.yaml`.
 
 1. Generate [Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/provide-credentials-adc#google-idp) to provide access to Terraform.
 
@@ -69,8 +69,8 @@ Note: If you create multiple clusters using these same cluster blueprints, ensur
     ```sh
     cd ~/cluster-toolkit
     ./gcluster deploy -d \
-    examples/gke-consumption-options/dws-flex-start/gke-tpu-7x/gke-tpu-7x-deployment.yaml \
-    examples/gke-consumption-options/dws-flex-start/gke-tpu-7x/gke-tpu-7x.yaml
+    gke-tpu-7x-deployment.yaml \
+    gke-tpu-7x.yaml
     ```
 
 1. When prompted, select (A)pply to deploy the blueprint.
